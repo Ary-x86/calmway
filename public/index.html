@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="%LANG_ISO_CODE%">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>%WEB_TITLE%</title>
+    <meta
+      name="description"
+      content="Navigation for anxious drivers. Calmway finds the route that is easiest on your nerves and tells you what it costs in minutes."
+    />
+    <meta name="theme-color" content="#2C7A6B" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Calmway" />
+    <meta property="og:title" content="Calmway" />
+    <meta property="og:description" content="Longer route, calmer drive. Navigation for anxious drivers." />
+    <meta property="og:image" content="icon-512.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <style id="expo-reset">
+      html,
+      body {
+        height: 100%;
+        background: #f4f1ea;
+      }
+      @media (prefers-color-scheme: dark) {
+        html,
+        body {
+          background: #0d1819;
+        }
+      }
+      body {
+        overflow: hidden;
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+      .maplibregl-ctrl-attrib {
+        font-family: system-ui, sans-serif;
+        font-size: 11px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>Calmway needs JavaScript to run.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
