@@ -1,10 +1,10 @@
-import {
-  Figtree_400Regular,
-  Figtree_500Medium,
-  Figtree_600SemiBold,
-  Figtree_700Bold,
-} from '@expo-google-fonts/figtree';
-import { Fraunces_500Medium_Italic, Fraunces_600SemiBold } from '@expo-google-fonts/fraunces';
+// Import single weights so only the fonts we use end up in the bundle.
+import { Figtree_400Regular } from '@expo-google-fonts/figtree/400Regular';
+import { Figtree_500Medium } from '@expo-google-fonts/figtree/500Medium';
+import { Figtree_600SemiBold } from '@expo-google-fonts/figtree/600SemiBold';
+import { Figtree_700Bold } from '@expo-google-fonts/figtree/700Bold';
+import { Fraunces_500Medium_Italic } from '@expo-google-fonts/fraunces/500Medium_Italic';
+import { Fraunces_600SemiBold } from '@expo-google-fonts/fraunces/600SemiBold';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
