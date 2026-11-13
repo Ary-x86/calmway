@@ -12,10 +12,7 @@ export const config = {
   geocoderUrl: env(process.env.EXPO_PUBLIC_GEOCODER_URL, 'https://photon.komoot.io'),
   /** Vector tiles (OpenMapTiles schema). */
   tilesUrl: env(process.env.EXPO_PUBLIC_TILES_URL, 'https://tiles.openfreemap.org/planet'),
-  glyphsUrl: env(
-    process.env.EXPO_PUBLIC_GLYPHS_URL,
-    'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
-  ),
+  glyphsUrl: env(process.env.EXPO_PUBLIC_GLYPHS_URL, 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf'),
   /** Optional API key appended as ?api_key= to routing and geocoding (Stadia style). */
   apiKey: process.env.EXPO_PUBLIC_MAPS_API_KEY ?? '',
   /** Link to the post that inspired the app. */

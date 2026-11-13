@@ -60,9 +60,7 @@ const UTURN = new Set<number>([M.UturnRight, M.UturnLeft]);
 
 /** Turns that cross oncoming traffic depend on which side of the road you drive on. */
 function isTurnAcross(type: number, side: DriveSide): boolean {
-  return side === 'right'
-    ? type === M.Left || type === M.SharpLeft
-    : type === M.Right || type === M.SharpRight;
+  return side === 'right' ? type === M.Left || type === M.SharpLeft : type === M.Right || type === M.SharpRight;
 }
 
 function isSimpleTurn(type: number, side: DriveSide): boolean {

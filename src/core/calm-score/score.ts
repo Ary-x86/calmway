@@ -156,8 +156,7 @@ export function scoreRoute(
   let highwayKm = 0;
   let fastRoadKm = 0;
 
-  const coordAt = (i: number): LngLat =>
-    route.geometry[Math.min(Math.max(i, 0), route.geometry.length - 1)] ?? [0, 0];
+  const coordAt = (i: number): LngLat => route.geometry[Math.min(Math.max(i, 0), route.geometry.length - 1)] ?? [0, 0];
 
   const add = (kind: StressKind, maneuverIndex: number, extra = 0) => {
     const points = (BASE_POINTS[kind] + extra) * weightFor(kind, weights);

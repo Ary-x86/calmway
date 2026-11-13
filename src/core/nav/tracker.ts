@@ -52,7 +52,9 @@ export class RouteTracker {
 
   constructor(route: Route) {
     this.route = route;
-    this.maneuverAlong = route.maneuvers.map((m) => route.cumulative[Math.min(m.beginIndex, route.cumulative.length - 1)]);
+    this.maneuverAlong = route.maneuvers.map(
+      (m) => route.cumulative[Math.min(m.beginIndex, route.cumulative.length - 1)],
+    );
     this.total = route.cumulative[route.cumulative.length - 1] ?? 0;
   }
 

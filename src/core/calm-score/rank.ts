@@ -56,9 +56,7 @@ export function rankRoutes(routes: Route[], opts: RankOptions): RankedRoute[] {
   return picks.map(({ s, labels }) => {
     const extraTime = Math.max(0, s.route.duration - fastest.route.duration);
     const calmerBy =
-      fastest.score.stress > 0
-        ? Math.round(((fastest.score.stress - s.score.stress) / fastest.score.stress) * 100)
-        : 0;
+      fastest.score.stress > 0 ? Math.round(((fastest.score.stress - s.score.stress) / fastest.score.stress) * 100) : 0;
     return {
       ...s.route,
       score: s.score,
@@ -76,8 +74,7 @@ export function summarize(score: CalmScore, units: UnitSystem, comparedTo?: Calm
   const parts: string[] = [];
 
   if (comparedTo) {
-    const avoidedMerges =
-      comparedTo.counts['highway-entry'] + comparedTo.counts.merge - (c['highway-entry'] + c.merge);
+    const avoidedMerges = comparedTo.counts['highway-entry'] + comparedTo.counts.merge - (c['highway-entry'] + c.merge);
     if (avoidedMerges > 0 && c['highway-entry'] + c.merge === 0) {
       parts.push('No highway merges');
     } else if (avoidedMerges > 0) {

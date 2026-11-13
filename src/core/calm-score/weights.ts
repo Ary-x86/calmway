@@ -11,7 +11,11 @@ export const TRIGGERS: { id: Trigger; title: string; detail: string }[] = [
   { id: 'merging', title: 'Merging and on-ramps', detail: 'Finding a gap in fast traffic' },
   { id: 'turnsAcross', title: 'Turning across traffic', detail: 'Unprotected turns and U-turns' },
   { id: 'roundabouts', title: 'Roundabouts', detail: 'Picking the right lane and exit' },
-  { id: 'complexJunctions', title: 'Complicated junctions', detail: 'Forks, lane choices and turns in quick succession' },
+  {
+    id: 'complexJunctions',
+    title: 'Complicated junctions',
+    detail: 'Forks, lane choices and turns in quick succession',
+  },
 ];
 
 export const NEUTRAL_WEIGHTS: TriggerWeights = {
