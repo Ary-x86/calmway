@@ -18,7 +18,7 @@ There is no GPS on a desktop, so:
 
 ### Quickest: the web app
 
-Every push to `main` deploys to GitHub Pages: **https://ary-x86.github.io/calmway/**
+The web app lives on GitHub Pages: **https://ary-x86.github.io/calmway/**
 
 Open it on your phone and use "Add to Home Screen". It runs full screen, uses real GPS (the site is HTTPS) and speaks directions. Keep the screen on while driving.
 
@@ -100,4 +100,11 @@ Optional: set `EXPO_PUBLIC_ORIGINAL_POST_URL` to the link of the post that inspi
 
 ## 5. Web hosting
 
-`.github/workflows/web.yml` exports the web build with the `/calmway` base path, adds a `404.html` fallback so deep links work, and publishes to GitHub Pages. To use your own domain, add it under the repository's Settings, Pages, and remove the `EXPO_BASE_URL` line from the workflow.
+The site is served from the `gh-pages` branch. There are two ways to update it, and both do the same thing: export the web build with the `/calmway` base path, run `scripts/prepare-pages.mjs`, and publish `dist/` to `gh-pages`.
+
+- **From your computer:** `npm run deploy:web`
+- **Automatically:** `.github/workflows/web.yml` runs on every push to `main`. This needs GitHub Actions to be available on your account. If runs fail with "account is locked due to a billing issue", fix that under GitHub Settings, Billing, or keep using `npm run deploy:web`.
+
+`scripts/prepare-pages.mjs` exists because GitHub Pages will not serve files from a folder named `node_modules`, which is where Expo puts fonts and icons. It moves them to `assets/vendor` and adds a `404.html` so deep links like `/calmway/settings` work.
+
+To use your own domain, add it under the repository's Settings, Pages, and drop `EXPO_BASE_URL` from the workflow and the `deploy:web` script.

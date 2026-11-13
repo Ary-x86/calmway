@@ -1,21 +1,22 @@
 name: Deploy web app
 
+# Publishes to the gh-pages branch, the same place `npm run deploy:web` does,
+# so the site can be deployed from CI or from a laptop.
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -29,20 +30,10 @@ jobs:
         env:
           # GitHub Pages serves the site from /<repo>
           EXPO_BASE_URL: /${{ github.event.repository.name }}
-      - name: Single page app fallback
-        run: |
-          cp dist/index.html dist/404.html
-          touch dist/.nojekyll
-      - uses: actions/upload-pages-artifact@v4
+      - name: Prepare for GitHub Pages
+        run: node scripts/prepare-pages.mjs
+      - uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          commit_message: Deploy web app

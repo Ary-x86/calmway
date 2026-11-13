@@ -17,7 +17,8 @@
     "build:web": "expo export -p web",
     "icons": "bash scripts/generate-icons.sh",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "deploy:web": "EXPO_BASE_URL=/calmway expo export -p web && node scripts/prepare-pages.mjs && gh-pages --nojekyll --dist dist --message 'Deploy web app'"
   },
   "dependencies": {
     "@expo-google-fonts/figtree": "^0.4.1",
@@ -60,6 +61,7 @@
     "@types/react": "~19.3.0",
     "eslint": "^9.39.5",
     "eslint-config-expo": "~58.0.4",
+    "gh-pages": "^6.3.0",
     "jest": "^30.5.2",
     "jest-expo": "^58.0.14",
     "prettier": "^3.10.1",
