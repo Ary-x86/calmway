@@ -41,7 +41,7 @@ export function AboutScreen() {
       <View style={[styles.header, wide && styles.narrow]}>
         <IconButton icon="arrow-back" label="Back" tone="subtle" onPress={() => router.back()} />
       </View>
-      <ScrollView contentContainerStyle={[styles.content, wide && styles.narrow]}>
+      <ScrollView contentContainerStyle={[styles.content, wide && styles.narrow]} showsVerticalScrollIndicator={false}>
         <View style={styles.hero}>
           <Image source={require('@/assets/images/logo.png')} style={styles.logo} accessibilityLabel="Calmway logo" />
           <Text variant="display">Calmway</Text>

@@ -42,7 +42,12 @@ export function DirectionsSheet({
   return (
     <View style={styles.wrap}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        <View style={styles.avoid}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.avoidScroll}
+          contentContainerStyle={styles.avoid}
+        >
           <Chip
             label="No highways"
             icon="block"
@@ -61,7 +66,7 @@ export function DirectionsSheet({
             selected={avoid.ferries}
             onPress={() => setAvoid('ferries', !avoid.ferries)}
           />
-        </View>
+        </ScrollView>
 
         {needsOrigin ? (
           <View style={[styles.notice, { backgroundColor: p.accentSoft }]}>
@@ -126,7 +131,8 @@ export function DirectionsSheet({
 const styles = StyleSheet.create({
   wrap: { flex: 1 },
   content: { paddingHorizontal: space.lg, paddingBottom: space.xl, gap: space.md },
-  avoid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
+  avoidScroll: { marginHorizontal: -space.lg, flexGrow: 0 },
+  avoid: { gap: space.sm, paddingHorizontal: space.lg },
   loading: { alignItems: 'center', gap: space.md, paddingVertical: space.xxl },
   notice: { flexDirection: 'row', alignItems: 'center', gap: space.md, padding: space.md, borderRadius: radius.md },
   flex: { flex: 1 },

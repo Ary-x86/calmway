@@ -68,7 +68,7 @@ export function SettingsScreen() {
         <IconButton icon="arrow-back" label="Back" tone="subtle" onPress={() => router.back()} />
         <Text variant="title">Settings</Text>
       </View>
-      <ScrollView contentContainerStyle={[styles.content, wide && styles.narrow]}>
+      <ScrollView contentContainerStyle={[styles.content, wide && styles.narrow]} showsVerticalScrollIndicator={false}>
         <Section title="What stresses you">
           {TRIGGERS.map((t) => (
             <ToggleRow
